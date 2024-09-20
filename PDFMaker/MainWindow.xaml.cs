@@ -273,16 +273,6 @@ namespace PDFMaker
         {
 
         }
-
-        private void SaveCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = true;
-        }
-
-        private void SaveCommand_Executed(object sender, ExecutedRoutedEventArgs e)
-        {
-            Save();
-        }
     }
 
     public class LineSegment

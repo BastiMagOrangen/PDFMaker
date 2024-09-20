@@ -7,9 +7,6 @@
         xmlns:local="clr-namespace:PDFMaker"
         mc:Ignorable="d"
         Title="PDFMaker" Height="450" Width="800">
-    <Window.CommandBindings>
-        <CommandBinding Command="Save" CanExecute="SaveCommand_CanExecute" Executed="SaveCommand_Executed" />
-    </Window.CommandBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -21,7 +18,7 @@
                 <MenuItem Header="Öffnen" Click="Oeffnen_Click"/>
                 <MenuItem Header="Ordner Öffnen" Click="OeffnenFolder_Click"/>
                 <MenuItem Header="Show Preview" Click="Preview_Click"/>
-                <MenuItem Header="Speichern" Command="Save" InputGestureText="Strg+S" Click="MenuItem_Click_1"/>
+                <MenuItem Header="Speichern" Click="MenuItem_Click_1"/>
                 <MenuItem Header="Beenden" Click="MenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="Options">
