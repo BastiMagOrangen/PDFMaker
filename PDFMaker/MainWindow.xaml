@@ -1,0 +1,46 @@
+﻿<Window x:Class="PDFMaker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:properties="clr-namespace:PDFMaker.Properties"
+        xmlns:local="clr-namespace:PDFMaker"
+        mc:Ignorable="d"
+        Title="PDFMaker" Height="450" Width="800">
+    <Window.CommandBindings>
+        <CommandBinding Command="Save" CanExecute="SaveCommand_CanExecute" Executed="SaveCommand_Executed" />
+    </Window.CommandBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" FontSize="14">
+            <MenuItem Header="Datei">
+                <MenuItem Header="Öffnen" Click="Oeffnen_Click"/>
+                <MenuItem Header="Ordner Öffnen" Click="OeffnenFolder_Click"/>
+                <MenuItem Header="Show Preview" Click="Preview_Click"/>
+                <MenuItem Header="Speichern" Command="Save" InputGestureText="Strg+S" Click="MenuItem_Click_1"/>
+                <MenuItem Header="Beenden" Click="MenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="Options">
+                <MenuItem Header="Settings" Click="Setting_Click"/>
+            </MenuItem>
+            <MenuItem Header="Info" Click="Info_Click"/>
+            <MenuItem Header="About" Click="About_Click"/>
+        </Menu>
+        <RichTextBox Block.LineHeight="1" Grid.Row="1" Name="textBox" FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=FontSize}" SelectionChanged="TextUpdate">
+            <FlowDocument>
+                <Paragraph Name="TextParagraph"  LineHeight="1">
+                    <Run/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <StatusBar Grid.Row="2">
+            <StatusBarItem>
+                <TextBlock Name="FolderPathText"/>
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>
